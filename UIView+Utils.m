@@ -326,4 +326,15 @@ static char kDTActionHandlerLongPressGestureKey;
 	}
 }
 
+- (void) addPulseAnimation
+{
+    CABasicAnimation *pulseAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    pulseAnimation.duration = .2;
+    pulseAnimation.toValue = [NSNumber numberWithFloat:1.2];
+    pulseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    pulseAnimation.autoreverses = YES;
+    pulseAnimation.repeatCount = 1;//FLT_MAX;
+    [self.layer addAnimation:pulseAnimation forKey:nil];
+}
+
 @end
